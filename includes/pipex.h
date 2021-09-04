@@ -10,6 +10,8 @@
 typedef struct s_all
 {
 	char		***argvs;
+	int			is_hd;
+	char		*hd;
 	char		**path;
 	int			*fd_pipe;
 	int			fd0;

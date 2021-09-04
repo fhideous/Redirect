@@ -1,7 +1,7 @@
 # Redirect
 
 Should create dir "libft" from 
-git@github.com:fhideous/libft.git 
+https://github.com/fhideous/libft.git
 
 
 Objective is to code the Pipex program.
