@@ -102,17 +102,16 @@ int heredoc(t_all *all, const int argc, const char **argv)
 int fd_open(t_all *all, const int argc, const char **argv)
 {
 	if (!ft_strncmp(argv[1], "here_doc", 9))
-	{
-		if (heredoc(all, argc, argv))
-			return (1);
-	}
+        all->err = heredoc(all, argc, argv);
 	else
-	all->fd0 = open(argv[1], O_RDONLY);
-	all->fd1 = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
-	if (all->fd1 == -1 ||
-		all->fd0 == -1 )
-		all->err = 3;
-	return (all->err);
+    {
+        all->fd0 = open(argv[1], O_RDONLY);
+        all->fd1 = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
+        if (all->fd1 == -1 ||
+            all->fd0 == -1 )
+            all->err = 3;
+    }
+    return (all->err);
 } 
 
 int take_path(t_all *all, char **env)
