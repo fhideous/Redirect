@@ -1,10 +1,10 @@
 #include "pipex.h"
 
-int    heredoc_2(t_all *all)
+int	heredoc_2(t_all *all)
 {
-	char    buf[100];
-	int        fd;
-	int        f;
+	char	buf[100];
+	int		fd;
+	int		f;
 
 	f = 0;
 	fd = open(".heredoc", O_CREAT | O_WRONLY | O_TRUNC, 0777);
@@ -24,7 +24,7 @@ int    heredoc_2(t_all *all)
 	}
 }
 
-int heredoc(t_all *all, const int argc, const char **argv)
+int	heredoc(t_all *all, const int argc, const char **argv)
 {
 	all->is_hd = 1;
 	if (argc < 6)
@@ -39,7 +39,7 @@ int heredoc(t_all *all, const int argc, const char **argv)
 	return (all->err);
 }
 
-int fd_open(t_all *all, const int argc, const char **argv)
+int	fd_open(t_all *all, const int argc, const char **argv)
 {
 	if (!ft_strncmp(argv[1], "here_doc", 9))
 		all->err = heredoc(all, argc, argv);
@@ -47,9 +47,9 @@ int fd_open(t_all *all, const int argc, const char **argv)
 	{
 		all->fd0 = open(argv[1], O_RDONLY);
 		all->fd1 = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
-		if (all->fd1 == -1 ||
-			all->fd0 == -1 )
+		if (all->fd1 == -1
+			|| all->fd0 == -1 )
 			all->err = 3;
 	}
 	return (all->err);
-} 
+}

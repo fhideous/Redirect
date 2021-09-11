@@ -20,15 +20,14 @@ typedef struct s_all
 	int			err;
 }			t_all;
 
-int fd_open(t_all *all, const int argc, const char **argv);
+int	fd_open(t_all *all, const int argc, const char **argv);
 
-int take_path(t_all *all, char **env);
-int split_commands(t_all *all,const int argc,const char **argv);
-int fd_pipe_alloc(t_all *all);
+int	take_path(t_all *all, char **env);
+int	split_commands(t_all *all, const int argc, const char **argv);
+int	fd_pipe_alloc(t_all *all);
 
-int find_commands_path(t_all *all);
+int	find_commands_path(t_all *all);
 
-int pipes(t_all *all, char **env);
-
+int	pipes(t_all *all, char **env);
 
 #endif

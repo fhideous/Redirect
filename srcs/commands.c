@@ -1,6 +1,6 @@
 #include "pipex.h"
 
-int check_curr_dir(char **argv)
+int	check_curr_dir(char **argv)
 {
 	if (!ft_strncmp(argv[0], "./", 2) && argv[0][3] != '\0')
 		if (access(argv[0], F_OK))
@@ -8,17 +8,17 @@ int check_curr_dir(char **argv)
 	return (1);
 }
 
-int free_return(char *data, int n)
+int	free_return(char *data, int n)
 {
 	free(data);
-	return n;
+	return (n);
 }
 
-int check_all_path_dir(char **argv, char **path)
+int	check_all_path_dir(char **argv, char **path)
 {
-	char    *tmp;
-	char    *full_path;
-	int        i;
+	char	*tmp;
+	char	*full_path;
+	int		i;
 
 	tmp = ft_strjoin("/", argv[0]);
 	if (!tmp)
@@ -28,7 +28,7 @@ int check_all_path_dir(char **argv, char **path)
 	{
 		full_path = ft_strjoin(*(path + i), tmp);
 		if (!full_path)
-			return(free_return(tmp, -1));
+			return (free_return(tmp, -1));
 		if (!access(full_path, F_OK))
 		{
 			free(argv[0]);
@@ -42,10 +42,10 @@ int check_all_path_dir(char **argv, char **path)
 	return (1);
 }
 
-int find_commands_path(t_all *all)
+int	find_commands_path(t_all *all)
 {
-	int    i;
-	int j;
+	int		i;
+	int		j;
 
 	i = -1;
 	while (++i < all->commands_numb)
@@ -54,10 +54,10 @@ int find_commands_path(t_all *all)
 		if (j == -1)
 			return (j);
 		else if (j == 0)
-			continue;
+			continue ;
 		j = check_all_path_dir(all->argvs[i], all->path);
 		if (j == 0)
-			continue;
+			continue ;
 		return (j);
 	}
 	return (0);

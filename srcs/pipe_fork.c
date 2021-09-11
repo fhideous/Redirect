@@ -1,9 +1,9 @@
 #include "pipex.h"
 
-int fork_execv(char **argvs, char **env,
+int	fork_execv(char **argvs, char **env,
 					const int fd_from, const int fd_to)
 {
-	pid_t    pid;
+	pid_t	pid;
 
 	pid = fork();
 	if (pid == 0)
@@ -28,11 +28,11 @@ int fork_execv(char **argvs, char **env,
 	return (0);
 }
 
-int pipes(t_all *all, char **env)
+int	pipes(t_all *all, char **env)
 {
-	int        i;
-	int        fd_from;
-	int        fd_to;
+	int		i;
+	int		fd_from;
+	int		fd_to;
 
 	i = 0;
 	fd_from = all->fd0;

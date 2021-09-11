@@ -1,8 +1,8 @@
 #include "pipex.h"
 
-int take_path(t_all *all, char **env)
+int	take_path(t_all *all, char **env)
 {
-	int i;
+	int		i;
 
 	i = -1;
 	while (env[++i])
@@ -16,9 +16,9 @@ int take_path(t_all *all, char **env)
 	return (all->err);
 }
 
-int split_commands(t_all *all,const int argc,const char **argv)
+int	split_commands(t_all *all, const int argc, const char **argv)
 {
-	int i;
+	int		i;
 
 	all->commands_numb = argc - 3 - all->is_hd;
 	all->argvs = ft_calloc(all->commands_numb, sizeof(char *));
@@ -35,9 +35,9 @@ int split_commands(t_all *all,const int argc,const char **argv)
 	return (0);
 }
 
-int fd_pipe_alloc(t_all *all)
+int	fd_pipe_alloc(t_all *all)
 {
-	all->fd_pipe = ft_calloc( 2, sizeof(int *));
+	all->fd_pipe = ft_calloc(2, sizeof(int *));
 	if (!all->fd_pipe)
 		return (all->err = -1);
 	return (0);
