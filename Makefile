@@ -1,6 +1,6 @@
 NAME = pipex
 
-SRCS =					main.c
+SRCS =					main.c preparation.c pipe_fork.c open_fd.c commands.c 
 
 HEAD =					pipex.h
 
