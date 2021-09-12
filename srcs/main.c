@@ -10,6 +10,9 @@ void	all_init(void *all, size_t n)
 
 void	argvs_free(t_all *all)
 {
+	int	i;
+	int	j;
+
 	i = 0;
 	while ((all->argvs + i) && (i < all->commands_numb))
 	{
@@ -25,7 +28,6 @@ void	argvs_free(t_all *all)
 void	struct_free(t_all *all)
 {
 	int	i;
-	int	j;
 
 	if (all->is_hd)
 	{
